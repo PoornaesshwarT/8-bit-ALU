@@ -1,0 +1,64 @@
+# ----------------------------------------------------
+# Xilinx Vivado - auto-generated project files
+# ----------------------------------------------------
+
+# Project-wide generated directories
+*.cache/
+*.hw/
+*.ip_user_files/
+*.runs/
+*.sim/
+*.srcs/*.srcs/
+.Xil/
+NA/
+
+# Vivado project files (regenerated from sources; keep out unless you want to share it)
+*.xpr
+
+# Simulation / synthesis logs & journals
+*.jou
+*.log
+*.str
+*.backup.jou
+*.backup.log
+vivado*.jou
+vivado*.log
+vivado_pid*.str
+webtalk*.log
+webtalk*.jou
+usage_statistics_webtalk.html
+usage_statistics_webtalk.xml
+
+# Generated reports / bitstreams (regenerable via Implementation flow)
+*.bit
+*.ltx
+*.dcp
+*.rpt
+*.xsa
+
+# IP / block design generated output
+*.gen/
+*.xci.orig
+
+# Waveform databases (large, regenerable — keep only exported screenshots)
+*.wdb
+*.vcd
+
+# ----------------------------------------------------
+# OS / Editor junk
+# ----------------------------------------------------
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# ----------------------------------------------------
+# Keep these (documented for clarity - not ignored)
+# ----------------------------------------------------
+# RTL/alu_8.v
+# Testbench/alu_8_tb.v
+# Constraints/nexys4_ddr.xdc
+# Simulation/waveform.png
+# Implementation/rtl_schematic.png
+# Implementation/fpga_implementation.png
