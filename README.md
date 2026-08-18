@@ -39,7 +39,7 @@ A synthesizable 8-bit ALU implemented in Verilog HDL, verified through randomize
 
 This project implements an **8-bit Arithmetic Logic Unit (ALU)** at the Register Transfer Level (RTL), capable of performing eight arithmetic, logical, and shift operations selected via a 3-bit opcode. The design generates four standard status flags — **Zero, Carry, Overflow, and Negative** — commonly used in processor datapaths for conditional branching and arithmetic validation.
 
-The ALU was functionally verified using a self-contained Verilog testbench executing **100 randomized test cases**, and is structured for straightforward synthesis and deployment on Artix-7 based FPGA boards such as the Nexys 4 DDR.
+The ALU was functionally verified in simulation using a self-contained Verilog testbench executing **100 randomized test cases**. The design and constraints are structured for synthesis and deployment on Artix-7 based FPGA boards such as the Nexys 4 DDR; hardware implementation is planned as a future step once board access is available.
 
 ## Features
 
@@ -121,8 +121,8 @@ The ALU was functionally verified using a self-contained Verilog testbench execu
 │   └── waveform.png               # Vivado simulation waveform
 │
 ├── Implementation/
-│   ├── rtl_schematic.png          # Synthesized RTL schematic
-│   └── fpga_implementation.png    # FPGA implementation / board image
+│   ├── rtl_schematic.png          # Synthesized RTL schematic (pending)
+│   └── fpga_implementation.png    # FPGA implementation / board image (pending — no board yet)
 │
 └── Constraints/
     └── nexys4_ddr.xdc             # Physical/timing constraints (Nexys 4 DDR)
@@ -169,19 +169,15 @@ Functional simulation was performed in **Xilinx Vivado** using behavioral simula
 
 ## RTL Schematic
 
-The Vivado-generated RTL schematic below illustrates the synthesized structure of the design.
+A Vivado-generated RTL schematic (via `Synthesis → Open Synthesized Design → Schematic`) will be added here once synthesis is run.
 
-![RTL Schematic](Implementation/rtl_schematic.png)
-
-> Place your schematic capture at `Implementation/rtl_schematic.png` to have it render above.
+> **Status:** Pending. This section will be updated with the schematic capture once synthesis is performed.
 
 ## FPGA Implementation
 
-The ALU targets an **Artix-7** FPGA, validated on the **Nexys 4 DDR** development board.
+The design is intended to target an **Artix-7** FPGA, such as the **Nexys 4 DDR** development board, and includes a constraints file (`Constraints/nexys4_ddr.xdc`) written for that target.
 
-![FPGA Implementation](Implementation/fpga_implementation.png)
-
-> Place your implementation/board photo at `Implementation/fpga_implementation.png` to have it render above.
+> **Status:** Not yet implemented on hardware — synthesis, implementation, and bitstream generation have not been performed due to lack of access to a physical board. This section will be updated with RTL schematic, utilization/timing reports, and a board photo once hardware becomes available.
 
 ## Tools & Technologies
 
@@ -238,22 +234,25 @@ Flow Navigator → Simulation → Run Behavioral Simulation
 
 Inspect `Y`, `Z`, `C`, `V`, and `N` in the waveform viewer against expected values for each randomized test case.
 
-### 6. Synthesize and Implement on FPGA (Optional)
+### 6. Synthesize and Implement on FPGA (Optional, hardware required)
 
-If targeting hardware, add the constraints file:
+The constraints file for a Nexys 4 DDR board is included:
 
 ```text
 Constraints/nexys4_ddr.xdc
 ```
 
-Then run the standard implementation flow:
+If you have access to compatible Artix-7 hardware, run the standard implementation flow:
 
 ```text
 Synthesis → Implementation → Generate Bitstream → Program Device
 ```
 
+> This step has not yet been performed on this project due to lack of board access. Simulation (Step 5) fully verifies functional correctness independent of hardware.
+
 ## Roadmap
 
+- [ ] Synthesize and implement the design on an Artix-7 FPGA (e.g., Nexys 4 DDR) once hardware is available
 - [ ] Add a self-checking testbench with automated pass/fail reporting
 - [ ] Add SystemVerilog Assertions (SVA) for property-based verification
 - [ ] Extend the design to 16-bit and 32-bit variants
@@ -289,4 +288,4 @@ This project is licensed under the terms described in [LICENSE](LICENSE).
 
 If you found this project useful, consider giving the repository a ⭐.
 
-</div># 8-bit-ALU
+</div>
